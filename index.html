@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        /* CSS Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, padding 0.3s;
+            /* justify-content: space-evenly; */
+        }
+
+        .navbar {
+            /* background-color: #264488; */
+                   background-color: #7469B6;
+            padding: 20px 10%;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+             justify-content: center;
+
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 10%;
+        }
+
+        .company-name {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            /* margin-right: 00px; */
+            /* position: static; */
+            
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: 200px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            margin-left: 500px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            /* margin-right: 20px; */
+            justify-content: space-evenly;
+            align-items: center;
+            
+
+            
+        }
+         
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+            
+            
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .nav-active {
+            display: block;
+        }
+
+        main {
+            padding-top: 100px; /* Adjust for fixed navbar */
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* background: #f4f4f4; */
+            background-color: #B4D6CD;
+            padding: 20px;
+            text-align: center;
+        }
+        .text1{
+             height: 500px;
+            width: 500px;
+            font-weight: bold;
+            /* font-family: 'Times New Roman', Times, serif; */
+            font-weight: 500;
+            margin-top:50px;
+            font-size: 2rem;
+        }
+
+        section:nth-child(odd) {
+            background-color: #FF8C9E;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #264488;
+                /* background-color: #7469B6; */
+                position: absolute;
+                top: 60px; /* Position below the navbar */
+                left: 0;
+                z-index: 1000;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-active {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" id="navbar">
+        <!-- <div class="company-name">Prodigy InfoTech</div> -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="text1">
+                <p><i>Web development is the process of creating and maintaining websites and web applications that run on the internet or intranets. It encompasses a range of tasks and disciplines involved in building a website, from the initial design and layout to coding, testing, and deployment.</i></p> 
+            </div>
+        <div class="page1">
+             
+            <img src="pageimg1.png" alt="pageimg1">
+            <h1>Hello I'm Full Stack Web Developer</h1>
+            
+        </div>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+             
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript for Interactivity
+        window.addEventListener("scroll", () => {
+            const navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("nav-active");
+            hamburger.classList.toggle("toggle");
+        });
+    </script>
+</body>
+
+</html>
